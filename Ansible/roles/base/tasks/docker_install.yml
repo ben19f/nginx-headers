@@ -23,7 +23,7 @@
     mode: '0644'
 
 - name: Determine Debian version codename
-  command: . /etc/os-release && echo "$VERSION_CODENAME"
+  shell: . /etc/os-release && echo "$VERSION_CODENAME"
   register: debian_codename
   changed_when: false
 
