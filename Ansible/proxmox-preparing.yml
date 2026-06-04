@@ -1,0 +1,13 @@
+# создаем юзера для ансибла
+- name: user and ssh
+  hosts: empty_nodes
+  become: yes
+  roles:
+    - first_contact
+
+# cтавим докер на вм
+- name: install docker
+  hosts: my_docker_nodes
+  become: yes
+  roles:
+    - base
