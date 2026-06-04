@@ -15,3 +15,9 @@
     dest: "/etc/sudoers.d/{{ new_user }}"
     content: "{{ new_user }} ALL=(ALL) NOPASSWD:ALL"
     mode: '0440'
+
+
+- name: Restart SSH service
+  service:
+    name: sshd
+    state: restarted
