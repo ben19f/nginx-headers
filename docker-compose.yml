@@ -2,15 +2,15 @@ services:
 
   app:
     build:
-    context: ./app     
+      context: ./app     
     container_name: app
     networks:
       proxy_chain:
         ipv4_address: 172.30.0.10
 
   networks:
-  proxy_chain:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.30.0.0/24
+    proxy_chain:
+      driver: bridge
+      ipam:
+        config:
+          - subnet: 172.30.0.0/24
