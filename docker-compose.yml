@@ -32,6 +32,18 @@ services:
       proxy_chain:
         ipv4_address: 172.30.0.20
 
+  nginx3:
+    build:
+      context: ./nginx
+    container_name: nginx3
+    # ports:
+    #   - "8080:80"
+    volumes:
+      - ./nginx/nginx3.conf:/etc/nginx/nginx.conf
+    networks:
+      proxy_chain:
+        ipv4_address: 172.30.0.30
+
 networks:
   proxy_chain:
     driver: bridge
