@@ -7,9 +7,9 @@ services:
     networks:
       - proxy_chain
 
-  networks:
-    proxy_chain:
-      driver: bridge
-      ipam:
-        config:
-          - subnet: 172.30.0.0/24
+networks:
+  proxy_chain:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
