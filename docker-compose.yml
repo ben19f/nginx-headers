@@ -7,6 +7,17 @@ services:
     networks:
       - proxy_chain
 
+  nginx1:
+    build:
+      context: ./nginx
+    container_name: nginx1
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx1.conf:/etc/nginx/nginx.conf
+    networks:
+      - proxy_chain
+
 networks:
   proxy_chain:
     driver: bridge
