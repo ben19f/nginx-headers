@@ -5,8 +5,7 @@ services:
       context: ./app     
     container_name: app
     networks:
-      proxy_chain:
-        ipv4_address: 172.30.0.10
+      - proxy_chain
 
   networks:
     proxy_chain:
