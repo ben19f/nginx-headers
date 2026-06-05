@@ -1,10 +1,15 @@
 # Инструкция запуска
+### скачиваем реепозиторий 
+sudo apt install git
+git clone https://github.com/ben19f/nginx-headers.git 
 
-### для настройки серверов запустите плейбук
+
+### для настройки серверов запустите плейбук (если надо предварительно настроить ставим ансибл и запускаем)
+##### (введи нужные адреса ssh-key и серверов в инвентори файле)
 ansible-playbook -i inventory.ini proxmox-preparing.yml
 
 
-## приложение на питоне
+## приложение реализовано на питоне
 
 ### локальный тест скрипта
 ###### (образец моего вывода)
@@ -17,12 +22,18 @@ host01:~$ curl -H "X-Forwarded-For: 1.2.3.4"      http://localhost:8000
 
 
 
-собираем контейнер
+
+# Cобираем контейнеры
+cd nginx-headers
+
+## запуск контейнеров
 sudo docker compose up -d --build
 
 
-для теста после создания смотрим адресс контейнера
-sudo docker inspect app | grep -w "IPAddress"
+### реализована следующая схема
+client → nginx1 → app
+client → nginx2 → nginx1 → app
+client → nginx3 → nginx2 → nginx1 → app
 
 
 
