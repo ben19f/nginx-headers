@@ -12,8 +12,8 @@ services:
     build:
       context: ./nginx
     container_name: nginx1
-    ports:
-      - "8080:80"
+    # ports:
+    #   - "8080:80"
     volumes:
       - ./nginx/nginx1.conf:/etc/nginx/nginx.conf
     networks:
@@ -24,8 +24,8 @@ services:
     build:
       context: ./nginx
     container_name: nginx2
-    ports:
-      - "8080:80"
+    # ports:
+    #   - "8080:80"
     volumes:
       - ./nginx/nginx2.conf:/etc/nginx/nginx.conf
     networks:
