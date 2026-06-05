@@ -5,7 +5,8 @@ services:
       context: ./app     
     container_name: app
     networks:
-      - proxy_chain
+      proxy_chain:
+        ipv4_address: 172.30.0.4
 
   nginx1:
     build:
@@ -16,7 +17,20 @@ services:
     volumes:
       - ./nginx/nginx1.conf:/etc/nginx/nginx.conf
     networks:
-      - proxy_chain
+      proxy_chain:
+        ipv4_address: 172.30.0.10
+    
+  nginx2:
+    build:
+      context: ./nginx
+    container_name: nginx2
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx2.conf:/etc/nginx/nginx.conf
+    networks:
+      proxy_chain:
+        ipv4_address: 172.30.0.20
 
 networks:
   proxy_chain:
